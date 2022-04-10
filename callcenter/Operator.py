@@ -4,7 +4,7 @@ from enum import IntEnum
 class OperatorStatus(IntEnum):
     AVAILABLE = 0
     RINGING = 1
-    BUSY = 1
+    BUSY = 2
 
 
 class Operator:
