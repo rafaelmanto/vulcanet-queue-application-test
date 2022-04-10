@@ -1,21 +1,24 @@
 import cmd
 
+from callcenter.CallCenterManager import CallCenterManager
+
 
 class CommandInterpreter(cmd.Cmd):
-    def __init__(self):
+    def __init__(self, call_center_manager: CallCenterManager):
+        self.manager = call_center_manager
         super().__init__()
 
     def do_call(self, args):
-        print("Calling")
+        self.manager.receive_call(args)
 
     def do_answer(self, args):
-        print("Answering")
+        self.manager.answer_call(args)
 
     def do_reject(self, args):
-        print("Reject")
+        self.manager.reject_call(args)
 
     def do_hangup(self, args):
-        print("Hangup")
+        self.manager.hang_up_call(args)
 
     def preloop(self):
         print("Callcenter is on!")
